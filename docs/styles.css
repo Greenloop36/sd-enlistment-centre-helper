@@ -32,6 +32,8 @@ body {
     align-items: flex-start;
     margin: 0;
     padding: 0;
+
+    transition: all 250ms;
 }
 
 .content {
@@ -65,7 +67,7 @@ a {
 }
 
 button {
-    padding: 5px 20px;
+    padding: 8px 20px;
     min-height: 0;
     height: fit-content;
     border: 0;
@@ -88,7 +90,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
     width: 100%;
     margin: 0;
     margin-bottom: 2em;
@@ -166,6 +168,7 @@ form {
 #quiz-select ul li {
     display: flex;
     list-style-type: none;
+    align-items: center;
     margin: 1em 0;
     padding: 10px;
 
