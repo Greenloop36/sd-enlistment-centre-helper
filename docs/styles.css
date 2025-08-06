@@ -1,13 +1,27 @@
 /* Variables */
 :root {
     --text-header: rgb(51, 95, 99);
+    --text-header-muted :rgba(51, 95, 99, 0.15);
+
     --text-primary: rgb(39, 105, 186);
-    --text-primary-muted: rgba(39, 105, 186, 0.25)
+    --text-primary-muted: rgba(39, 105, 186, 0.15);
+
+    --white: rgb(255, 255, 255);
+    --black: rgb(0, 0, 0)
 }
 
 /* Configuration */
 body, html {
     font-family: "Open Sans";
+
+    /* Light Mode */
+    color: var(--black);
+    background-color: var(--white);
+}
+
+.dark-mode {
+    color: var(--white);
+    background-color: var(--black);
 }
 
 body {
@@ -50,8 +64,31 @@ a {
     color: var(--text-primary);
 }
 
+button {
+    padding: 5px 20px;
+    min-height: 0;
+    height: fit-content;
+    border: 0;
+
+    background-color: var(--text-primary);
+    color: var(--white);
+
+    font-family: inherit;
+    transition: 
+        background-color 200ms;
+}
+
+button:hover {
+    background-color: var(--text-primary-muted);
+    color: var(--text-primary);
+}
+
 /* Header */
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
     width: 100%;
     margin: 0;
     margin-bottom: 2em;
@@ -70,6 +107,15 @@ header p {
 
 header a {
     color: var(--text-header)
+}
+
+header button {
+    background-color: var(--text-header);
+}
+
+header button:hover {
+    background-color: var(--text-header-muted);
+    color: var(--text-header);
 }
 
 /* Footer */
@@ -109,4 +155,31 @@ footer p {
 
 form {
     width: 100%;
+}
+
+/* section: Quiz Selection */
+#quiz-select ul {
+    justify-content: left;
+    padding: 0;
+}
+
+#quiz-select ul li {
+    display: flex;
+    list-style-type: none;
+    margin: 1em 0;
+    padding: 10px;
+
+    border: 1px solid var(--text-primary);
+}
+
+#quiz-select ul li p {
+    width: 100%;
+}
+
+#quiz-select ul li strong {
+    font-size: 17px;
+}
+
+#quiz-select ul li em {
+    font-size: 13px;
 }

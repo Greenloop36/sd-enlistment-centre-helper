@@ -11,25 +11,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
      <!-- <link href="https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"> -->
 </head>
-<body>
+<body class="">
     <div class="content">
         <header>
-            <h1>Enlistment Centre Questions Generator</h1>
-            <p>Maintained by <a href="https://github.com/Greenloop36">Greenloop36</a>, for the Security Department of Installation IX.</p>
+            <div>
+                <h1>Enlistment Centre Questions Generator</h1>
+                <p>Maintained by <a href="https://github.com/Greenloop36">Greenloop36</a>, for the Security Department of Installation IX.</p>
+            </div>
+
+            <button id="btn-dark-mode">Dark Mode</button>
         </header>
 
         <div class="body">
-            <h1>Upload Configuration File</h1>
-            <p>To begin, upload your configuration file for the Enlistment Centre.</p>
+            <div id="file-upload">
+                <h1>Upload Configuration File</h1>
+                <p>To begin, upload your configuration file for the Enlistment Centre.</p>
 
-            <form>
-                <label for="file-input" id="drop-area" class="drop-area">
-                    <input type="file" accept=".json" id="file-input" hidden></input>
-                    <p>
-                        Drop your file here, or click here to select one.
-                    </p>
-                </label>
-            </form>
+                <form>
+                    <label for="file-input" id="drop-area" class="drop-area">
+                        <input type="file" accept=".json" id="file-input" hidden></input>
+                        <p>
+                            Drop your file here, or click here to select one.
+                        </p>
+                    </label>
+                </form>
+            </div>
+
+            <div id="quiz-select">
+                <h1>Quiz Selection</h1>
+                <p>Select which quiz to generate questions for.</p>
+                
+                <ul>
+                    <li>
+                        <p>
+                            <strong>Quiz Name</strong><br>
+                            Quiz Description<br>
+                            <em>x questions</em>
+                        </p>
+
+                        <button>Go</button>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <footer>
@@ -37,7 +60,6 @@
             <p>© Copyright Greenloop36 (2025)</p>
             <hr>
             <p>
-                
                 Project maintained by Greenloop36.<br>
                 This project is open source! You can view the source code <a href="https://github.com/Greenloop36/sd-enlistment-centre-helper">here</a>.<br>
                 Licensed under the <a href="https://github.com/Greenloop36/sd-enlistment-centre-helper/blob/main/LICENSE">BSD 3-Clause License</a>.
@@ -45,5 +67,7 @@
         </footer>
     </div>
 
+    <script src="scripts/dark-mode.js"></script>
+    
 </body>
 </html>
