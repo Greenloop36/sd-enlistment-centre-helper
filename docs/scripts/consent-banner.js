@@ -2,11 +2,25 @@ const modal = document.getElementById("consent-dialog")
 const button_consent = document.getElementById("consent-consent")
 const button_deny = document.getElementById("consent-deny")
 const button_reset = document.getElementById("consent-reset")
+let script_loaded = false; // Add this flag to prevent duplicates
+
+function load_gtag() {
+    if (script_loaded) return;
+    script_loaded = true;
+
+    const gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-HXW2DNDNX8';
+    
+    // Use `document.head.appendChild` to add it to the head
+    document.head.appendChild(gtagScript);
+}
 
 function toggle_consent(consented) {
     if (consented == true) {
         localStorage.setItem("consentGranted", "true");
         // When consent is granted, update consent and then configure the tag
+        load_gtag()
         gtag('consent', 'update', {
             ad_storage: 'granted',
             analytics_storage: 'granted'
