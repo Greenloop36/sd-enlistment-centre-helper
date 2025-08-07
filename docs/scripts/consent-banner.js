@@ -3,45 +3,26 @@ const button_consent = document.getElementById("consent-consent")
 const button_deny = document.getElementById("consent-deny")
 const button_reset = document.getElementById("consent-reset")
 
-var script_created = false
-
-function create_script() {
-    if (script_created == true) { return }
-    script_created = true
-
-    var gtagScript = document.createElement('script');
-    gtagScript.async = true;
-    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-HXW2DNDNX8';
-
-    var firstScript = document.getElementsByTagName('script')[0];
-    firstScript.parentNode.insertBefore(gtagScript,firstScript);
-}
-
 function toggle_consent(consented) {
     if (consented == true) {
         localStorage.setItem("consentGranted", "true");
-        // create_script()
+        // When consent is granted, update consent and then configure the tag
+        gtag('consent', 'update', {
+            ad_storage: 'granted',
+            analytics_storage: 'granted'
+        });
+        gtag('config', 'G-HXW2DNDNX8'); // <-- Call this AFTER consent is granted
     } else {
         localStorage.setItem("consentGranted", "false");
+        // When consent is denied, just update the consent state
+        gtag('consent', 'update', {
+            ad_storage: 'denied',
+            analytics_storage: 'denied'
+        });
     }
 
-    // function gtag() { dataLayer.push(arguments); }
-
-    consent = null
-    if (consented == true) {
-        consent = "granted"
-    } else {
-        consent = "denied"
-    }
-
-    gtag('consent', 'update', {
-      ad_user_data: consent,
-      ad_personalization: consent,
-      ad_storage: consent,
-      analytics_storage: consent
-    });
-
-    console.log(`consent: ${consent}`)
+    // You can remove the gtag() function definition, as it's defined in the HTML
+    console.log(`consent: ${consented ? 'granted' : 'denied'}`);
 }
 
 function toggle_modal(toggle) {
