@@ -20,12 +20,12 @@ function create_script() {
 function toggle_consent(consented) {
     if (consented == true) {
         localStorage.setItem("consentGranted", "true");
-        create_script()
+        // create_script()
     } else {
         localStorage.setItem("consentGranted", "false");
     }
 
-    function gtag() { dataLayer.push(arguments); }
+    // function gtag() { dataLayer.push(arguments); }
 
     consent = null
     if (consented == true) {
