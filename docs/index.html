@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-HXW2DNDNX8"></script> -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500,
+        });
+        gtag('js', new Date());
+        gtag('config', 'G-HXW2DNDNX8');
+    </script>
+
+    <!-- Head -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -23,7 +40,27 @@
 
 <body>
     <div id="loading">
+        Display initialising<br>
         Please wait
+    </div>
+
+    <div id="consent-dialog">
+        <div id="consent-container">
+            <div>
+                <h1>Cookie Preferences</h1>
+                <p>
+                    This site uses cookies to analyse traffic only.<br>
+                    Collected data is not shared with any third party, other than the owner of this site.<br>
+                    You can reset consent by clicking the link at the foot of this page.<br><br>
+                    Advertisements are not displayed on this site.
+                </p>
+            </div>
+            
+            <div id="buttons" style="margin-top: 1em; align-items: right;">
+                <button id="consent-consent">Consent</button>
+                <button id="consent-deny" class="secondary">Deny</button>
+            </div>
+        </div>
     </div>
 
     <div class="content">
@@ -76,13 +113,17 @@
             <p>
                 Project maintained by Greenloop36.<br>
                 This project is open source! You can view the source code <a href="https://github.com/Greenloop36/sd-enlistment-centre-helper">here</a>.<br>
-                Licensed under the <a href="https://github.com/Greenloop36/sd-enlistment-centre-helper/blob/main/LICENSE">BSD 3-Clause License</a>.
+                Licensed under the <a href="https://github.com/Greenloop36/sd-enlistment-centre-helper/blob/main/LICENSE">BSD 3-Clause License</a>.<br><br>
+                <a id="consent-reset">Reset cookie consent</a>
+                 <!-- <button class="secondary">Reset Cookie Consent</button> -->
             </p>
         </footer>
     </div>
 
     <script src="scripts/load.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
     <script src="scripts/dark-mode.js"></script>
-
+    <script src="scripts/main.js"></script>
+    <script src="scripts/consent-banner.js"></script>
 </body>
 </html>
