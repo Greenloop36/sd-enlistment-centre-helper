@@ -12,6 +12,10 @@ function load_gtag() {
     gtagScript.async = true;
     gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-HXW2DNDNX8';
     
+    gtagScript.onload = function() {
+        gtag('config', 'G-HXW2DNDNX8');
+    }
+
     // Use `document.head.appendChild` to add it to the head
     document.head.appendChild(gtagScript);
 }
@@ -25,7 +29,7 @@ function toggle_consent(consented) {
             ad_storage: 'granted',
             analytics_storage: 'granted'
         });
-        gtag('config', 'G-HXW2DNDNX8'); // <-- Call this AFTER consent is granted
+         // <-- Call this AFTER consent is granted
     } else {
         localStorage.setItem("consentGranted", "false");
         // When consent is denied, just update the consent state
@@ -65,7 +69,10 @@ button_reset.addEventListener("click", function() {
 })
 
 window.addEventListener("load", function() {
-    if (localStorage.getItem("consentGranted") != "true") {
+    let consented = localStorage.getItem("consentGranted")
+    if (consented == "true") {
+        toggle_consent(true)
+    } else if (consented != "false") {
         toggle_modal(true)
     }
 })
