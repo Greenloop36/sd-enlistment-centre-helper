@@ -66,7 +66,7 @@ button_reset.addEventListener("click", function() {
 window.addEventListener("load", function() {
     let consented = localStorage.getItem("consentGranted")
     if (consented == "true") {
-        toggle_consent(true)
+        // toggle_consent(true)
     } else if (consented != "false") {
         toggle_modal(true)
     }
